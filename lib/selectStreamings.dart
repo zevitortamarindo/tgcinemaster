@@ -187,7 +187,9 @@ class _SelectStreamingState extends State<SelectStreaming> {
                             Expanded(
                               child: Text(
                                 streaming.title!,
+                                maxLines: 1,
                                 style: subTitleStyle,
+                                overflow: TextOverflow.ellipsis,
                               ),
                             )
                           ]),

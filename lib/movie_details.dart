@@ -365,7 +365,18 @@ Widget buildCard(String ator, String personagem) => Padding(
           padding: const EdgeInsets.all(15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [Text(ator), Text(personagem)],
+            children: [
+              Text(
+                ator,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
+              ),
+              Text(
+                personagem,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
+              )
+            ],
           ),
         ),
       ),

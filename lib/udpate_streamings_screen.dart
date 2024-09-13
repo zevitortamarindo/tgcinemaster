@@ -121,96 +121,6 @@ class _UpdateStreamingScreenState extends State<UpdateStreamingScreen> {
     ),
   ];
 
-  // // List<String> buildStreamingsList() {
-  // //   return streamings
-  // //       .where((streaming) =>
-  // //           selectedStreamings.contains(streaming.title?.toLowerCase()))
-  // //       .map((streaming) => streaming.title!)
-  // //       .toList();
-  // // }
-
-  // // List<String> buildStreamingsList() {
-  // //   List<String> selectedTitles = streamings
-  // //       .where((streaming) =>
-  // //           selectedStreamings.contains(streaming.title?.toLowerCase()))
-  // //       .map((streaming) {
-  // //     print('Selected Streaming: ${streaming.title}');
-  // //     return streaming.title!;
-  // //   }).toList();
-
-  // //   print('Selected Titles: $selectedTitles');
-  // //   return selectedTitles;
-  // // }
-
-  // List<String> buildStreamingsList() {
-  //   List<String> markedStreamings = streamings
-  //       .where((streaming) => streaming.done == true)
-  //       .map((streaming) => streaming.title!.toLowerCase())
-  //       .toList();
-
-  //   print('Marked Streamings: $markedStreamings');
-  //   return markedStreamings;
-  // }
-
-  // // void onChanged(Streaming streaming, bool newValue) {
-  // //   print('Checkbox for ${streaming.title} changed to $newValue');
-  // //   setState(() {
-  // //     streaming.done = newValue;
-
-  // //     if (newValue) {
-  // //       // Se foi marcado, adicione à lista temporária
-  // //       if (!selectedStreamings.contains(streaming.title!)) {
-  // //         selectedStreamings.add(streaming.title!);
-  // //       }
-  // //     } else {
-  // //       // Se foi desmarcado, remova da lista temporária
-  // //       selectedStreamings.remove(streaming.title);
-  // //     }
-  // //   });
-  // // }
-
-  // void onChanged(Streaming streaming, bool newValue) {
-  //   print('Checkbox for ${streaming.title} changed to $newValue');
-  //   setState(() {
-  //     streaming.done = newValue;
-
-  //     if (newValue) {
-  //       // Se foi marcado, adicione à lista temporária
-  //       if (!selectedStreamings.contains(streaming.title!.toLowerCase())) {
-  //         selectedStreamings.add(streaming.title!.toLowerCase());
-  //       }
-  //     } else {
-  //       // Se foi desmarcado, remova da lista temporária
-  //       selectedStreamings.remove(streaming.title?.toLowerCase());
-  //     }
-  //   });
-  // }
-
-  // void concluirAtualizacao() async {
-  //   FirebaseAuth auth = FirebaseAuth.instance;
-  //   User? user = auth.currentUser;
-
-  //   if (user != null) {
-  //     String uidDoUsuario = user.uid;
-
-  //     await FirebaseFirestore.instance
-  //         .collection('users')
-  //         .doc(uidDoUsuario)
-  //         .set({
-  //       'streamings': buildStreamingsList(),
-  //     });
-
-  //     final snackBar = SnackBar(
-  //       content: Text('Atualização realizada com sucesso!'),
-  //       duration: Duration(seconds: 2),
-  //     );
-
-  //     ScaffoldMessenger.of(context).showSnackBar(snackBar);
-
-  //     Navigator.pop(context); // Voltar para a tela anterior após a atualização
-  //   }
-  // }
-
   void onChanged(Streaming streaming, bool newValue) {
     print('Checkbox for ${streaming.title} changed to $newValue');
     setState(() {
@@ -359,6 +269,8 @@ class _UpdateStreamingScreenState extends State<UpdateStreamingScreen> {
                               child: Text(
                                 streaming.title!,
                                 style: subTitleStyle,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
                               ),
                             )
                           ],

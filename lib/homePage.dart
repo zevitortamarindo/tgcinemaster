@@ -245,6 +245,7 @@ class _HomeState extends State<Home> {
                           );
                         },
                       ),
+                      // SÉRIES
                       Container(
                         margin: EdgeInsets.only(top: 8, bottom: 7),
                         child: Row(
@@ -444,48 +445,3 @@ class _HomeState extends State<Home> {
     );
   }
 }
-
-// Antigo Builder
-// CarouselSlider(
-//   options: CarouselOptions(
-//     height: 250, // Altura do carrossel
-//     aspectRatio: 9 / 6, // Proporção
-//     viewportFraction: 0.4, // Fração de visão por slide
-//     initialPage: 1, // Página inicial
-//     enableInfiniteScroll: false,
-//     enlargeCenterPage: false, // Ampliar a página central
-//     scrollDirection: Axis.horizontal, // Direção de rolagem
-//   ),
-//   items: widget.filmes.map((filme) {
-//     return Builder(
-//       builder: (BuildContext context) {
-//         return Padding(
-//           padding: const EdgeInsets.only(right: 12),
-//           child: Column(
-//             children: [
-//               InkWell(
-//                   onTap: () {
-//                     Navigator.push(
-//                       context,
-//                       MaterialPageRoute(builder: (context) {
-//                         return MovieDetails();
-//                       }),
-//                     );
-//                   },
-//                   child: Image.network(filme.image!)),
-//               Align(
-//                 alignment: Alignment.centerLeft,
-//                 child: Text(
-//                   filme.title!,
-//                   style: simpleStyle,
-//                   maxLines: 2,
-//                   overflow: TextOverflow.ellipsis,
-//                 ),
-//               ),
-//             ],
-//           ),
-//         );
-//       },
-//     );
-//   }).toList(),
-// ),

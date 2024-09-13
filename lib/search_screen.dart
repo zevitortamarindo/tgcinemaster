@@ -140,8 +140,13 @@ class _SearchScreenState extends State<SearchScreen> {
     if (query.isNotEmpty) {
       List<dynamic> results = await searchMovies(query);
 
+      // Filtra resultados para incluir apenas filmes com poster_path não vazio
+      List<dynamic> filteredResults = results.where((movie) {
+        return movie['poster_path'] != null && movie['poster_path'].isNotEmpty;
+      }).toList();
+
       setState(() {
-        searchResults = results;
+        searchResults = filteredResults;
       });
     }
   }
